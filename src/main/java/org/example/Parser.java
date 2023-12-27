@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -17,21 +18,13 @@ public class Parser {
     public static CryptoCurrency parseJsonString(String strJson, org.example.Currency currency) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(strJson);
+
         return objectMapper.treeToValue(rootNode.get("data").get(currency.getName()), CryptoCurrency.class);
-//        CryptoCurrency btc = objectMapper.treeToValue(rootNode.get("data").get("btc"), CryptoCurrency.class);
-//        CryptoCurrency usdt = objectMapper.treeToValue(rootNode.get("data").get("usdt"), CryptoCurrency.class);
-//        CryptoCurrency xrp = objectMapper.treeToValue(rootNode.get("data").get("xrp"), CryptoCurrency.class);
-//        CryptoCurrency ltc = objectMapper.treeToValue(rootNode.get("data").get("ltc"), CryptoCurrency.class);
-//
-//        Time time = new Time();
-//
-//        String nameOfCrypta = time.formatData() + "," + eth.getPrice() + "," + btc.getPrice() + "," + usdt.getPrice() + "," + xrp.getPrice() + "," + ltc.getPrice();
-//        FileWriter fileWriter = new FileWriter();
-//        fileWriter.appendNewLine(nameOfCrypta);
+
     }
 
     public static void runParse(int period) {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\citru\\IdeaProjects\\TestProject\\src\\main\\java\\org\\example\\CryptoCurrency.csv");
+        FileWriter fileWriter = new FileWriter(Path.of("C:\\Users\\citru\\IdeaProjects\\TestProject\\src\\main\\java\\org\\example\\CryptoCurrency.csv"),"Data-Time,eth,btc,usdt,xrp,ltc" + "\n");
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         Future future = scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
             public void run() {

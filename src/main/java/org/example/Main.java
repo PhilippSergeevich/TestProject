@@ -1,14 +1,18 @@
 package org.example;
 
-import java.io.IOException;
+import org.example.parser.BitflyerParser;
+import org.example.parser.KriptomatParser;
+import org.example.parser.Parser;
 
 public class Main {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        //Parser.runParse(10);
-        BitflyerParser.runParse(10);
+        BitflyerParser bitflyerParser = new BitflyerParser();
+        bitflyerParser.runParse(10);
+        KriptomatParser kriptomatParser = new KriptomatParser();
+        kriptomatParser.runParse(10);
 
     }
 }

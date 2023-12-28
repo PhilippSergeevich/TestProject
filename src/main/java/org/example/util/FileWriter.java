@@ -1,4 +1,4 @@
-package org.example;
+package org.example.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,16 +14,16 @@ public class FileWriter {
         this(Path.of(pathToFile), "");
     }
 
-    public FileWriter(Path pathToFile, String zagolovok) {
+    public FileWriter(Path pathToFile, String heading) {
         this.path = pathToFile;
-        createFileIfNotExist(pathToFile,zagolovok);
+        createFileIfNotExist(pathToFile, heading);
     }
 
-    private void createFileIfNotExist(Path pathToFile, String zagolovok) {
+    private void createFileIfNotExist(Path pathToFile, String heading) {
         if (!Files.exists(pathToFile)) {
             try {
                 Files.createFile(path);
-                String headerTable = zagolovok;
+                String headerTable = heading;
                 Files.writeString(path, headerTable, StandardOpenOption.APPEND);
             } catch (IOException e) {
                 throw new IllegalArgumentException("Ошибка чтения пути к файлу");

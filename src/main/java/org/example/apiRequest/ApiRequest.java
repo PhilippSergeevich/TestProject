@@ -1,4 +1,4 @@
-package org.example;
+package org.example.apiRequest;
 
 import java.io.IOException;
 import java.net.URI;
@@ -9,8 +9,8 @@ import java.net.http.HttpResponse;
 
 
 public class ApiRequest {
-    static HttpClient client = HttpClient.newHttpClient();
-    static HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
+    private static HttpClient client = HttpClient.newHttpClient();
+    private static HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
 
     public static String doRequest(String urlConnect) throws URISyntaxException, IOException, InterruptedException {
 

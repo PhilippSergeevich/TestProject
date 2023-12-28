@@ -1,4 +1,4 @@
-package org.example;
+package org.example.currency;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

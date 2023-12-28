@@ -1,15 +1,15 @@
-package org.example;
+package org.example.currency;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
 
-public class CryptoCurrency {
+public class KriptomatCurrency {
     private String name;
     private String code;
     private String state;
     private String ticker;
-    private String price;
+    private double price;
     private double change;
 
     private double[] weeklyPriceHistory;
@@ -55,12 +55,12 @@ public class CryptoCurrency {
     }
 
     @JsonProperty("price")
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
     @JsonProperty("price")
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

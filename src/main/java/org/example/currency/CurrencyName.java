@@ -1,6 +1,6 @@
-package org.example;
+package org.example.currency;
 
-public enum Currency {
+public enum CurrencyName {
     ETHERIUM("eth"),
     BITKOIN("btc"),
     TETHER("usdt"),
@@ -10,13 +10,14 @@ public enum Currency {
 
     private String name;
 
-    Currency(String name) {
+    CurrencyName(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
     }
+
 }
 
 

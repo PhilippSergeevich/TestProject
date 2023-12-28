@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.util.Time;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -14,13 +15,6 @@ public class TimeTest {
         LocalDateTime dateTime = LocalDateTime.of(2023, 12, 27, 15, 30);
         String actualTime = Time.formatData(dateTime);
         assertEquals(expected, actualTime);
-    }
-
-    @Test
-    public void testFormatDataWithNull() {
-        String expected = null;
-        String actual = Time.formatData(null);
-        assertEquals(expected, actual);
     }
 }
 

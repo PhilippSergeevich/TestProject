@@ -20,7 +20,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class BitflyerParser implements Parser {
+public class BitflyerParser implements ParserJson  {
     private static final String API_URL = "https://bitflyer.com/api/web/home/market-stats2?";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
@@ -41,8 +41,8 @@ public class BitflyerParser implements Parser {
 
     }
 
-    public void runParse(int period) {
-        FileWriter fileWriter = new FileWriter(Path.of("C:\\Users\\citru\\IdeaProjects\\TestProject\\src\\main\\java\\org\\example\\CryptoCurrencyBitflyer.csv"), "Data-Time, btc " + "\n");
+    public void runParse(int period, Path path) {
+        FileWriter fileWriter = new FileWriter(path, "Data-Time, btc " + "\n");
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         Future<?> future = scheduledExecutorService.scheduleAtFixedRate(() -> {
             try {

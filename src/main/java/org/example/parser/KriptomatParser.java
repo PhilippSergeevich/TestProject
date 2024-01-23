@@ -20,7 +20,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 
-public class KriptomatParser implements Parser {
+public class KriptomatParser implements ParserJson {
     private static final String API_URL = "https://api.kriptomat.io/public/prices";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
@@ -36,8 +36,8 @@ public class KriptomatParser implements Parser {
         }
     }
 
-    public void runParse(int period) {
-        FileWriter fileWriter = new FileWriter(Path.of("C:\\Users\\citru\\IdeaProjects\\TestProject\\src\\main\\java\\org\\example\\CryptoCurrency.csv"), "Data-Time,eth,btc,usdt,xrp,ltc" + "\n");
+    public void runParse(int period, Path path) {
+        FileWriter fileWriter = new FileWriter(path, "Data-Time,eth,btc,usdt,xrp,ltc" + "\n");
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         Future future = scheduledExecutorService.scheduleAtFixedRate(() -> {
             try {

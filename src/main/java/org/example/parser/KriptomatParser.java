@@ -47,7 +47,6 @@ public class KriptomatParser implements ParserJson {
                 CurrencyDTO usdt = parseJsonString(json, "usdt");
                 CurrencyDTO xrp = parseJsonString(json, "xrp");
                 CurrencyDTO ltc = parseJsonString(json, "ltc");
-
                 String nameOfCrypta = Time.formatData(LocalDateTime.now()) + "," + eth.getPrice() + "," + btc.getPrice() + "," + usdt.getPrice() + "," + xrp.getPrice() + "," + ltc.getPrice();
                 fileWriter.appendNewLine(nameOfCrypta);
 

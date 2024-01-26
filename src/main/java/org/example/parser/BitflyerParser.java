@@ -50,7 +50,7 @@ public class BitflyerParser implements ParserJson  {
 
                 CurrencyDTO btcJpy = parseJsonString(json, "BTC_JPY");
                 String nameOfCrypta = Time.formatData(LocalDateTime.now()) + "," + btcJpy.getPrice() + ",";
-
+                System.out.println(btcJpy.getPrice());
                 fileWriter.appendNewLine(nameOfCrypta);
             } catch (IOException | URISyntaxException | InterruptedException e) {
                 throw new RuntimeException(e);
